@@ -12,11 +12,7 @@ class QLearning:
         #Number of action
         self.nbAction = nbAction
         #Qtable
-        self.QTable = []
-        for x in range(nbState):
-            self.QTable.append([])
-            for y in range(nbAction):
-                self.QTable[x].append(0.0)
+        self.QTable = np.zeros((nbState,nbAction))
         #gamma
         self.gamma = gamma
         #Learning Rate

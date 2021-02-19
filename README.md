@@ -14,7 +14,6 @@ pip install Easy-QLearning
 ## Usage
 ```python
 import EQL
-
 ####Initialise QTable####
 #Mission: go to the house without run over the human
 #Game grid
@@ -38,7 +37,7 @@ actions = [
 ]
 
 #Make QTable
-Qtable = QLearning(nbAction=4,nbState=10)
+Qtable = EQL.QLearning(nbAction=4,nbState=10)
 
 ####Train the QTable####
 #100 games
@@ -53,7 +52,7 @@ for _ in range(100):
         #Display the grid
         print("---------------------")
         yTemp = 0
-        for line in grille:
+        for line in Grid:
             xTemp = 0
             for pt in line:
                 print("%s\t" % (pt if yTemp != y or xTemp != x else "X"), end="")
@@ -68,7 +67,7 @@ for _ in range(100):
         #Calcul the position in the grid (state)
         newState = (y*3+x+1)
         #Get the reward of the position
-        reward = grille[y][x]
+        reward = Grid[y][x]
         print("state : ", newState)
         print("reward : ", reward)
         #Update Q function
